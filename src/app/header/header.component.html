@@ -1,13 +1,23 @@
 <div class="header-container mb-3">
     <div class="d-flex">
-        <h1 class="m-0">Online store</h1>
-        <div class="ml-auto theme-toggle-button">
-            <span class="iconify" data-icon="bx:bxs-moon" data-inline="false"></span>
+        <h1 class="m-0" routerLink="/">Online store</h1>
+        <div class="ml-auto">
         </div>
-        <div class="ml-2 cart-button px-3" routerLink="/cart">
-            <p class="mr-1">Cart</p>
-            <span class="iconify" data-icon="fa-solid:shopping-cart" data-inline="false"></span>
+
+        <div *ngIf="isCart else cart;" class="ml-2 home-button px-3" routerLink="/">
+            <p class="mr-1">Home</p>
+            <span class="iconify" data-icon="heroicons-solid:home" data-inline="false"></span>
         </div>
+        <ng-template #cart>
+            <div class="ml-2 cart-button px-3" [ngClass]="{'cart-changed':cartChanged}" routerLink="/cart">
+                <p class="mr-1">Cart</p>
+                <span class="iconify" data-icon="fa-solid:shopping-cart" data-inline="false"></span>
+            </div>
+        </ng-template>
+
+
+
+
     </div>
 
     <div class="d-flex mt-2">

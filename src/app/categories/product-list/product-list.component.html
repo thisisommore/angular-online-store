@@ -1,13 +1,13 @@
-<div class="product-list-container pt-3">
-    <div *ngFor="let k in products" class="product-list-item">
+<div class="product-list-container py-3">
+    <div *ngFor="let k of products; let no=index;" class="product-list-item mt-2">
         <div class="product-image">
-            <img [src]="k.imageUrl" class="my-auto mx-auto">
+            <img [src]="k.imgUrl" class="my-auto mx-auto">
         </div>
         <div class="product-details ml-4">
             <h3>{{k.productName}}</h3>
             <p *ngFor="let details of k.productDetails">{{details}}</p>
         </div>
-        <div class="ml-auto mr-4 mt-4">
+        <div class="ml-auto mr-4 mt-4" (click)="addToCart(no)">
             <span class="iconify" data-icon="fa-solid:cart-plus" data-inline="false"></span>
         </div>
     </div>

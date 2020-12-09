@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import {filter} from 'rxjs/operators'
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import {filter} from 'rxjs/operators'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private cartServ: CartService) {
     router.events.pipe(filter(eve=>eve instanceof NavigationEnd)).subscribe(
       (eve)=>{
         this.currentNavigation = (<NavigationEnd>eve).url.split("/").slice(1)
@@ -22,8 +23,17 @@ export class HeaderComponent implements OnInit {
         }
       }
     );
+
+    cartServ.cartProductsChanged.subscribe(()=>
+    {
+      this.cartChanged = true;
+      setTimeout(()=>{
+        this.cartChanged=false;
+      },300)
+    })
    }
 
+  cartChanged = false;
   isCart = false;
   currentNavigation : string[] = [];
 

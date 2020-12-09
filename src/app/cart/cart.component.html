@@ -1,14 +1,14 @@
 <div class="product-list-container pt-3">
-    <div class="product-list-item">
+    <h3 *ngIf="!productsInCart.length">Your card is empty</h3>
+    <div *ngFor="let i of productsInCart; let no=index" class="product-list-item mt-2">
         <div class="product-image">
-            <img src="assets/product-list/laptop.png" class="my-auto mx-auto">
+            <img [src]="i.imgUrl" class="my-auto mx-auto">
         </div>
         <div class="product-details ml-4">
-            <h3>Samsung laptop</h3>
-            <p>8 GB ram</p>
-            <p>i9 Processor</p>
+            <h3>{{i.productName}}</h3>
+            <p *ngFor="let details of i.productDetails">{{details}}</p>
         </div>
-        <div class="ml-auto mr-4 mt-4">
+        <div class="ml-auto mr-4 mt-4" (click)="removeFromCart(no)">
             <span class="iconify" data-icon="ant-design:delete-filled" data-inline="false"></span>
         </div>
     </div>
