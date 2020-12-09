@@ -1,0 +1,33 @@
+.product-list-item{
+  display: flex;
+  background-color: #4f4f4f;
+  border-radius: 18px;
+  width: 80%;
+
+  p {
+    margin : 0;
+  }
+
+  .product-image {
+      border-radius: 18px;
+      display: flex;
+      background-color: #ffffff;
+
+    width: 14vw;
+    img {
+      width: 66%;
+      object-fit : contain;
+    }
+  }
+
+  .product-details {
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+  }
+
+  .iconify[data-icon="fa-solid:cart-plus"]
+  {
+    font-size : 2rem;
+  }
+}

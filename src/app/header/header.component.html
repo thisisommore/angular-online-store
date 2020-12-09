@@ -1,0 +1,23 @@
+<div class="header-container mb-3">
+    <div class="d-flex">
+        <h1 class="m-0">Online store</h1>
+        <div class="ml-auto theme-toggle-button">
+            <span class="iconify" data-icon="bx:bxs-moon" data-inline="false"></span>
+        </div>
+        <div class="ml-2 cart-button px-3" routerLink="/cart">
+            <p class="mr-1">Cart</p>
+            <span class="iconify" data-icon="fa-solid:shopping-cart" data-inline="false"></span>
+        </div>
+    </div>
+
+    <div class="d-flex mt-2">
+        <div class="d-flex" *ngFor="let i of currentNavigation; let no=index">
+            <h2 class="m-0">{{i | titlecase}}</h2>
+            <h2 *ngIf="no<(currentNavigation.length-1)">-></h2>
+        </div>
+        <div *ngIf="isCart" class="ml-auto checkout-button px-3">
+            <p class="mr-1">Checkout</p>
+            <span class="iconify" data-icon="bx:bxs-truck" data-inline="false"></span>
+        </div>
+    </div>
+</div>

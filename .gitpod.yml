@@ -1,0 +1,9 @@
+tasks:
+  - init: npm install && npm install -g @angular/cli
+    command: ng serve --host 0.0.0.0 --disable-host-check
+
+vscode:
+  extensions:
+    - syler.sass-indented@1.8.13:oaCCa/cOXQ2h/gAI2CrqaQ==
+    - gencer.html-slim-scss-css-class-completion@1.7.8:hKNUG1gg+AmtlHXZHEBU8A==
+    - mrmlnc.vscode-scss@0.9.1:Xtvl8tTagyF2RBdAFpjFvg==

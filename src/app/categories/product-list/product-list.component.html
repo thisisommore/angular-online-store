@@ -1,0 +1,15 @@
+<div class="product-list-container pt-3">
+    <div *ngFor="let k in products" class="product-list-item">
+        <div class="product-image">
+            <img [src]="k.imageUrl" class="my-auto mx-auto">
+        </div>
+        <div class="product-details ml-4">
+            <h3>{{k.productName}}</h3>
+            <p *ngFor="let details of k.productDetails">{{details}}</p>
+        </div>
+        <div class="ml-auto mr-4 mt-4">
+            <span class="iconify" data-icon="fa-solid:cart-plus" data-inline="false"></span>
+        </div>
+    </div>
+
+</div>
